@@ -1,3 +1,4 @@
+$jf = @'
 pipeline {
     agent any
 
@@ -13,6 +14,15 @@ pipeline {
         stage('Build') {
             steps { bat "mvn clean compile -Dspring.profile=${params.ENV}" }
         }
+        stage('Test') {
+            steps { bat 'mvn test -Dheadless=true' }
+            post {
+                always {
+                    junit testResults: 'target/surefire-reports/*.xml', allowEmptyResults: true
+                    archiveArtifacts artifacts: 'target/screenshots/*.png', allowEmptyArchive: true
+                }
+            }
+        }
         stage('Package') {
             steps {
                 bat "mvn package -DskipTests -Dspring.profile=${params.ENV}"
@@ -21,13 +31,21 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                bat "if exist \"${params.TOMCAT_HOME}\\webapps\\ROOT\" rmdir /S /Q \"${params.TOMCAT_HOME}\\webapps\\ROOT\" & exit /b 0"
                 bat "copy /Y \"target\\ROOT.war\" \"${params.TOMCAT_HOME}\\webapps\\ROOT.war\""
             }
         }
     }
 
     post {
-        success { echo "Deployed to ${params.ENV}: http://localhost:8080/" }
-        failure { echo 'Pipeline failed, check the stage logs.' }
+        success { echo "Tests passed and deployed to ${params.ENV}: http://localhost:8080/" }
+        failure { echo 'Pipeline failed. Deployment is skipped when tests fail.' }
     }
 }
+'@
+[System.IO.File]::WriteAllText("$PWD\Jenkinsfile", $jf, (New-Object System.Text.UTF8Encoding($false)))
+git diff --stat
+if (Test-Path "tatus --short") { git rm -f "tatus --short" }
+git add .
+git commit -m "ci: add Selenium test stage, test reports and safer deploy"
+git push -u origin feature/ci-tests

@@ -1,0 +1,6 @@
+.git
+.idea
+data
+*.log
+target/classes
+target/test-classes
