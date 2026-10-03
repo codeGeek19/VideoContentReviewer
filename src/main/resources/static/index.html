@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head><title>Video Content Review Portal</title></head>
+<body>
+<h1>Video Content Review Portal</h1>
+Role:
+<select id="role" onchange="load()">
+    <option>SUBMITTER</option><option>REVIEWER</option>
+</select>
+
+<h3>Dashboard</h3>
+<div id="dash"></div>
+
+<h3>Record <span id="editing"></span></h3>
+<input id="title" placeholder="Title"/>
+<input id="videoUrl" placeholder="Video URL"/>
+<input id="description" placeholder="Description"/>
+<input id="reviewer" placeholder="Reviewer"/>
+<input type="hidden" id="rid"/>
+<button id="saveBtn" onclick="save()">Save</button>
+<button id="clearBtn" onclick="clearForm()">Clear</button>
+<p id="msg"></p>
+
+<h3>Search</h3>
+<input id="q" placeholder="Search title"/>
+<select id="statusFilter">
+    <option value="">All</option><option>SUBMITTED</option><option>IN_REVIEW</option>
+    <option>APPROVED</option><option>REJECTED</option>
+</select>
+<button id="searchBtn" onclick="load()">Search</button>
+
+<table border="1" cellpadding="6" id="tbl">
+    <thead><tr><th>ID</th><th>Title</th><th>URL</th><th>Status</th><th>Reviewer</th><th>Actions</th></tr></thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    const next = {SUBMITTED:['IN_REVIEW'], IN_REVIEW:['APPROVED','REJECTED'], REJECTED:['SUBMITTED'], APPROVED:[]};
+
+    async function load() {
+        const params = new URLSearchParams();
+        if (q.value) params.set('q', q.value);
+        if (statusFilter.value) params.set('status', statusFilter.value);
+        const data = await (await fetch('/api/records?' + params)).json();
+        document.querySelector('#tbl tbody').innerHTML = data.map(r =>
+            `<tr><td>${r.id}</td><td>${r.title}</td><td>${r.videoUrl}</td>
+     <td class="status">${r.status}</td><td>${r.reviewer ?? ''}</td>
+     <td><button class="edit" onclick='edit(${JSON.stringify(r)})'>Edit</button>
+     ${next[r.status].map(t => `<button class="move" onclick="move(${r.id},'${t}')">→ ${t}</button>`).join('')}
+     </td></tr>`).join('');
+        const d = await (await fetch('/api/records/dashboard')).json();
+        dash.innerHTML = Object.entries(d).map(([k,v]) => `<b>${k}</b>: <span id="count-${k}">${v}</span>`).join(' | ');
+    }
+    function edit(r) {
+        rid.value = r.id; title.value = r.title; videoUrl.value = r.videoUrl;
+        description.value = r.description ?? ''; reviewer.value = r.reviewer ?? '';
+        editing.textContent = '(editing #' + r.id + ')';
+    }
+    function clearForm() {
+        rid.value = title.value = videoUrl.value = description.value = reviewer.value = '';
+        editing.textContent = '';
+    }
+    async function save() {
+        const body = { title: title.value, videoUrl: videoUrl.value,
+            description: description.value, reviewer: reviewer.value };
+        const url = rid.value ? '/api/records/' + rid.value : '/api/records';
+        const res = await fetch(url, { method: rid.value ? 'PUT' : 'POST',
+            headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body) });
+        msg.textContent = res.ok ? 'Saved' : 'Error: title and URL are required';
+        if (res.ok) { clearForm(); load(); }
+    }
+    async function move(id, target) {
+        const res = await fetch(`/api/records/${id}/status?target=${target}`,
+            { method: 'PATCH', headers: {'X-Role': role.value} });
+        msg.textContent = res.ok ? 'Status updated' : 'Not allowed for role ' + role.value;
+        load();
+    }
+    load();
+</script>
+</body>
+</html>
