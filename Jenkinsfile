@@ -3,7 +3,12 @@ pipeline {
 
     parameters {
         choice(name: 'ENV', choices: ['dev', 'test'], description: 'Target environment')
-        string(name: 'TOMCAT_HOME', defaultValue: 'C:\\tomcat', description: 'Tomcat install folder')
+        string(name: 'HOST_PORT', defaultValue: '8081', description: 'Host port for the container')
+    }
+
+    environment {
+        IMAGE_NAME = 'vcrp'
+        CONTAINER  = 'vcrp'
     }
 
     stages {
@@ -28,16 +33,35 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.war', fingerprint: true
             }
         }
-        stage('Deploy') {
+        stage('Docker Build') {
             steps {
-                bat "if exist \"${params.TOMCAT_HOME}\\webapps\\ROOT\" rmdir /S /Q \"${params.TOMCAT_HOME}\\webapps\\ROOT\" & exit /b 0"
-                bat "copy /Y \"target\\ROOT.war\" \"${params.TOMCAT_HOME}\\webapps\\ROOT.war\""
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
+                    bat "docker build -t %DH_USER%/%IMAGE_NAME%:${env.BUILD_NUMBER} -t %DH_USER%/%IMAGE_NAME%:latest ."
+                }
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
+                    bat 'echo %DH_PASS%| docker login -u %DH_USER% --password-stdin'
+                    bat "docker push %DH_USER%/%IMAGE_NAME%:${env.BUILD_NUMBER}"
+                    bat 'docker push %DH_USER%/%IMAGE_NAME%:latest'
+                }
+            }
+        }
+        stage('Deploy Container') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
+                    bat 'docker rm -f %CONTAINER% 2>nul & exit /b 0'
+                    bat "docker run -d --name %CONTAINER% -p ${params.HOST_PORT}:8080 %DH_USER%/%IMAGE_NAME%:${env.BUILD_NUMBER}"
+                    bat 'docker ps --filter name=%CONTAINER%'
+                }
             }
         }
     }
 
     post {
-        success { echo "Tests passed and deployed to ${params.ENV}: http://localhost:8080/" }
-        failure { echo 'Pipeline failed. Deployment is skipped when tests fail.' }
+        success { echo "Deployed container on http://localhost:${params.HOST_PORT}/" }
+        failure { echo 'Pipeline failed. No image is pushed or deployed when tests fail.' }
     }
 }
