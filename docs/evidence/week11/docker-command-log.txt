@@ -1,0 +1,308 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261003235221
+Username: LAPTOP-KHSGKRS2\Shruti
+RunAs User: LAPTOP-KHSGKRS2\Shruti
+Configuration Name: 
+Machine: LAPTOP-KHSGKRS2 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell.exe -NoExit -ExecutionPolicy Bypass -File C:\Program Files\JetBrains\IntelliJ IDEA 2026.1.3\plugins\terminal\shell-integrations\powershell\powershell-integration.ps1
+Process ID: 25864
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is docs\evidence\week11\docker-command-log.txt
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker build -t vcrp:1.0 .
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker build -t vcrp:1.0 .
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker build -t vcrp:1.0 .
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker images
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker images
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker images
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker run -d -p 8081:8080 --name vcrp vcrp:1.0
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker run -d -p 8081:8080 --name vcrp vcrp:1.0
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker run -d -p 8081:8080 --name vcrp vcrp:1.0
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker ps
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker ps
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker ps
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker logs vcrp
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker logs vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker logs vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>curl.exe http://localhost:8081/api/env
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker inspect vcrp
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker inspect vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker inspect vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker stop vcrp
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker stop vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker stop vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker ps -a
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker ps -a
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker ps -a
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker start vcrp
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker start vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker start vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker restart vcrp
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker restart vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker restart vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker ps
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker ps
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker ps
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker stop vcrp
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker stop vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker stop vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker rm vcrp
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker rm vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker rm vcrp
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker ps -a
+docker : The term 'docker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ docker ps -a
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+docker : The term 'docker' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ docker ps -a
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (docker:String) [],
+    CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+]1341;command_finished;exit_code=1;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261003235313
+**********************
