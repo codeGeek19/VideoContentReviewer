@@ -1,6 +1,6 @@
 ﻿**********************
 Windows PowerShell transcript start
-Start time: 20261004180740
+Start time: 20261004181634
 Username: LAPTOP-KHSGKRS2\Shruti
 RunAs User: LAPTOP-KHSGKRS2\Shruti
 Configuration Name: 
@@ -18,3 +18,52 @@ SerializationVersion: 1.1.0.1
 **********************
 Transcript started, output file is docs\evidence\week11\docker-command-log.txt
 ]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker images
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker run -d -p 8081:8080 --name vcrp vcrp:1.0
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker ps
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>Start-Sleep -Seconds 25
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker logs vcrp --tail 5
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>curl.exe http://localhost:8081/api/env
+{"environment":"DEV"}
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker inspect vcrp --format "{{.State.Status}} {{.NetworkSettings.Ports}}"
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker stop vcrp
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker ps -a
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker start vcrp
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker restart vcrp
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker ps
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker stop vcrp
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker rm vcrp
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>docker ps -a
+
+]1341;command_finished;exit_code=0;current_directory=433A5C55736572735C5368727574695C4465736B746F705C566964656F436F6E74656E7452657669657765725C64656D6F]1341;prompt_startedPS C:\Users\Shruti\Desktop\VideoContentReviewer\demo> ]1341;prompt_finished
+PS>Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261004181708
+**********************
