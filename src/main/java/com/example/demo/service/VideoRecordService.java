@@ -32,7 +32,7 @@ public class VideoRecordService {
     public List<VideoRecord> search(String q, Status status) {
         boolean hasQ = q != null && !q.isBlank();
         if (hasQ && status != null) return repo.findByTitleContainingIgnoreCaseAndStatus(q, status);
-        if (hasQ) return repo.findByTitleContainingIgnoreCase(q);
+        if (hasQ) return repo.findAll();
         if (status != null) return repo.findByStatus(status);
         return repo.findAll();
     }
