@@ -40,6 +40,7 @@ class PortalUiTest extends BaseUiTest {
 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(rowOf(other)));
         assertEquals(1, driver.findElements(rowOf(wanted)).size());
+        assertEquals(0, driver.findElements(rowOf(other)).size());
     }
 
     @Test
